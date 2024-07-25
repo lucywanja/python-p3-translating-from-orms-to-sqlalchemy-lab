@@ -1,14 +1,14 @@
 from models import Dog
 
 def create_table(base, engine):
-    base.metadata.create_all(engine)
+    base.metadata.create_all(engine) # create the classes to the db
 
 def save(session, dog):
-    session.add(dog)
-    session.commit()
+    session.add(dog) # dog is created in the db
+    session.commit() #apply the changes to the db
 
 def get_all(session):
-    return session.query(Dog).all()
+    return session.query(Dog).all() #get all objects in the dog table
 
 def find_by_name(session, name):
     return session.query(Dog).filter(Dog.name == name).first()
